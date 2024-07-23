@@ -26,6 +26,8 @@ body {
     height: auto;
     max-width: 300px;
     max-height: 300px;
+    background: #ddd; /* 占位符颜色 */
+    loading: lazy; /* 懒加载 */
 }
 
 .image-container .overlay {
@@ -42,4 +44,3 @@ body {
 .image-container:hover .overlay {
     opacity: 1;
 }
-
