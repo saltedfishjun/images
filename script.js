@@ -12,12 +12,18 @@ window.onload = function() {
                 const container = document.createElement('div');
                 container.className = 'image-container';
 
+                const link = document.createElement('a');
+                link.href = `${imageFolder}${image}`;
+                link.setAttribute('data-lightbox', 'gallery');
+                link.setAttribute('data-title', image);
+
                 const img = document.createElement('img');
                 img.src = `${imageFolder}${image}`;
                 img.onerror = () => {
                     img.src = 'path/to/placeholder.jpg'; // 替代图片路径
                 };
-                container.appendChild(img);
+                link.appendChild(img);
+                container.appendChild(link);
 
                 const overlay = document.createElement('div');
                 overlay.className = 'overlay';
