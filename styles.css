@@ -1,9 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
 }
@@ -13,18 +9,20 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    padding: 10px; /* 添加一些内边距以确保图片不贴边 */
 }
 
 .image-container {
     position: relative;
-    width: 100px; /* 设置宽度 */
-    height: 100px; /* 设置高度 */
+    width: 100px; /* 默认宽度 */
+    height: 100px; /* 默认高度 */
 }
 
 .image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 确保图片填充容器并保持比例 */
+    object-fit: contain; /* 确保图片保持比例且不被裁剪 */
+    object-position: top; /* 图片从顶部开始显示 */
     background: #ddd; /* 占位符颜色 */
     loading: lazy; /* 懒加载 */
 }
@@ -42,4 +40,32 @@ body {
 
 .image-container:hover .overlay {
     opacity: 1;
+}
+
+/* 手机设备样式 */
+@media (max-width: 600px) {
+    #gallery {
+        gap: 5px; /* 调整间距 */
+    }
+
+    .image-container {
+        width: 80px; /* 调整宽度 */
+        height: 80px; /* 调整高度 */
+    }
+}
+
+/* 平板设备样式 */
+@media (min-width: 601px) and (max-width: 900px) {
+    .image-container {
+        width: 100px; /* 调整宽度 */
+        height: 100px; /* 调整高度 */
+    }
+}
+
+/* 电脑设备样式 */
+@media (min-width: 901px) {
+    .image-container {
+        width: 150px; /* 调整宽度 */
+        height: 150px; /* 调整高度 */
+    }
 }
