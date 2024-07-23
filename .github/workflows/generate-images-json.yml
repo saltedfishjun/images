@@ -24,14 +24,7 @@ jobs:
       run: python -m pip install --upgrade pip
 
     - name: Generate images.json
-      run: |
-        import os
-        import json
-
-        image_folder = 'images'
-        image_list = [f for f in os.listdir(image_folder) if os.path.isfile(os.path.join(image_folder, f))]
-        with open('images.json', 'w') as f:
-            json.dump(image_list, f)
+      run: python generate_images_json.py
       
     - name: Commit and push changes
       run: |
