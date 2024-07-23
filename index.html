@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px;
+        }
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery" id="gallery"></div>
+
+    <script>
+        const gallery = document.getElementById('gallery');
+        const imageFolder = 'images'; // 指定图片文件夹
+
+        // 这是一个简单的模拟，在实际生产环境中，你需要使用服务器端脚本（如PHP、Node.js等）获取文件夹中的文件列表
+        const imageList = ['image1.jpg', 'image2.jpg']; // 手动列出文件夹中的所有图片文件名
+
+        imageList.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = `${imageFolder}/${image}`;
+            gallery.appendChild(imgElement);
+        });
+    </script>
+</body>
+</html>
 
