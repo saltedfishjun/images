@@ -12,22 +12,14 @@ window.onload = function() {
                 const container = document.createElement('div');
                 container.className = 'image-container';
 
-                const link = document.createElement('a');
-                link.href = `${imageFolder}${image}`;
-                link.setAttribute('data-lightbox', 'gallery');
-                link.setAttribute('data-title', image);
-
                 const img = document.createElement('img');
                 img.src = `${imageFolder}${image}`;
+                img.alt = image;
                 img.onerror = () => {
                     img.src = 'path/to/placeholder.jpg'; // 替代图片路径
                 };
-                link.appendChild(img);
-                container.appendChild(link);
-
-                const overlay = document.createElement('div');
-                overlay.className = 'overlay';
-                container.appendChild(overlay);
+                img.onclick = () => openModal(img.src, img.alt);
+                container.appendChild(img);
 
                 gallery.appendChild(container);
             });
@@ -40,4 +32,19 @@ const preloadImages = (imageUrls) => {
         const img = new Image();
         img.src = url;
     });
+};
+
+const openModal = (src, alt) => {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const captionText = document.getElementById('caption');
+
+    modal.style.display = "block";
+    modalImg.src = src;
+    captionText.innerHTML = alt;
+
+    const close = document.getElementsByClassName('close')[0];
+    close.onclick = () => { 
+        modal.style.display = "none";
+    };
 };
