@@ -14,8 +14,9 @@ body {
 
 .image-container {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
+    text-align: center; /* 使图片名称居中对齐 */
 }
 
 .image-container img {
@@ -26,12 +27,19 @@ body {
     loading: lazy;
 }
 
+.image-container .image-title {
+    display: block;
+    margin-top: 5px; /* 图片与名称之间的间距 */
+    font-size: 14px;
+    color: #333;
+}
+
 /* 模态窗口样式 */
 .modal {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 60px;
+    padding-top: 10px;
     left: 0;
     top: 0;
     width: 50%;
@@ -91,21 +99,21 @@ body {
     }
 
     .image-container {
-        width: 80px;
-        height: 80px;
+        width: 300px;
+        height: 300px;
     }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
     .image-container {
-        width: 100px;
-        height: 100px;
+        width: 300px;
+        height: 300px;
     }
 }
 
 @media (min-width: 901px) {
     .image-container {
-        width: 150px;
-        height: 150px;
+        width: 300px;
+        height: 300px;
     }
 }
