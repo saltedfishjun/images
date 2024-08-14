@@ -52,10 +52,9 @@ body {
 .modal-content {
     margin: auto;
     display: block;
-    width: 50%;  /* 修改宽度为50% */
-    height: 50%; /* 添加高度为50% */
-    max-width: 700px;
-    max-height: 700px; /* 添加最大高度限制 */
+    max-width: 100%; /* 确保图片宽度不超过屏幕宽度 */
+    max-height: 100%; /* 确保图片高度不超过屏幕高度 */
+    object-fit: contain; /* 保持图片原始比例 */
 }
 
 #caption {
